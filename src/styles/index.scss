@@ -1,13 +1,37 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-/* 
+body{
+    background-color: rgba(170, 139, 228, 0.295);
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.container{
+    width: 30rem;
+    left: 20rem;
+    border: 4px solid black;
+    margin-top: 6rem;
+}
+.input{
+    align-items: center;
+    justify-content: center;
 
-*/
+}
+.input[type=text]:focus {
+    border: 3px solid #555;
+    
+  }
+.listElements{
+    color: gray;
+    margin-top: 3rem;
+    border-radius: 20%;
+
+}
+
+.button {
+    float: right;
+    background-color: white;
+    border:white
+
+
+
+
+}
