@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import "../../styles/index.scss";
 
-export function Home() {
+export const Home = () => {
 	const [todo, setTodo] = useState([
-		"Study Boostrap and CSS",
-		"learn JavaScript"
+		{ label: "Study Boostrap and CSS" },
+		{ label: "learn JavaScript" }
 	]);
 	const myUrl = "https://assets.breatheco.de/apis/fake/todos/user/gabytodos";
 
@@ -43,7 +43,7 @@ export function Home() {
 		})
 			.then(response => response.json())
 			.then(json => {
-				setTodo(json);
+				// setTodo(json);
 				console.log(json);
 			});
 	};
@@ -77,7 +77,7 @@ export function Home() {
 			</nav>
 			<div className="container">
 				<h1 className="text-center">ToDo List!</h1>
-				<from className="Formulario">
+				<form className="Formulario">
 					<input
 						type="text"
 						placeholder="What needs to be done?"
@@ -85,28 +85,28 @@ export function Home() {
 							todoListNow(e);
 						}}
 					/>
-				</from>
+				</form>
+			</div>
+			<div className="container">
 				<div className="listElements">
 					<div className=" d-flex align-items-center">
 						<ul className="col">
-							{todo.map((todoElement, key) => {
-								return (
-									<li className="list-group-item" key={key}>
-										{todoElement}
-										<button
-											className="button"
-											onClick={event =>
-												deleteNow(key, event)
-											}>
-											<i className="fas fa-trash-alt" />
-										</button>
-									</li>
-								);
-							})}
+							{todo.map((todoElement, key) => (
+								<li className="list-group-item" key={key}>
+									{todoElement.label}
+									<button
+										className="button"
+										onClick={event =>
+											deleteNow(key, event)
+										}>
+										<i className="fas fa-trash-alt" />
+									</button>
+								</li>
+							))}
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-}
+};
